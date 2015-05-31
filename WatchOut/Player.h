@@ -13,4 +13,11 @@
 @property(nonatomic,assign)NSInteger row;
 
 
++(Player*)sharedObject;
+
+-(void)right;
+-(void)left;
+
+
+
 @end

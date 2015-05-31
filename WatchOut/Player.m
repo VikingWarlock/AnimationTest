@@ -10,10 +10,44 @@
 
 @implementation Player
 
--(NSInteger)row
+- (instancetype)init
 {
-    return 1;
+    self = [super init];
+    if (self) {
+        self.row=1;
+    }
+    return self;
 }
+
+
++(Player *)sharedObject
+{
+    static dispatch_once_t once;
+    static id shared;
+    dispatch_once(&once, ^{
+        if (shared==nil) {
+            shared=[[Player alloc]init];
+        }
+    });
+    return shared;
+}
+
+-(void)right
+{
+    self.row++;
+    if (self.row>2) {
+        self.row=2;
+    }
+}
+
+-(void)left
+{
+    self.row--;
+    if (self.row<0) {
+        self.row=0;
+    }
+}
+
 
 
 @end

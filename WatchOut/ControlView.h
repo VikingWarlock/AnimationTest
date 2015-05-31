@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ControlView : UIView
+{
+    UIControl *leftControl;
+    UIControl *rightControl;
+}
+
+-(void)setup;
 
 @end

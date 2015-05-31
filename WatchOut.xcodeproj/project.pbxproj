@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A110991B1AFA7300A4351D /* Barrier.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A110981B1AFA7300A4351D /* Barrier.m */; };
 		88D570391B1607B30043507D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D570381B1607B30043507D /* main.m */; };
 		88D5703C1B1607B30043507D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5703B1B1607B30043507D /* AppDelegate.m */; };
 		88D5703F1B1607B30043507D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5703E1B1607B30043507D /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09A110971B1AFA7300A4351D /* Barrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barrier.h; sourceTree = "<group>"; };
+		09A110981B1AFA7300A4351D /* Barrier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barrier.m; sourceTree = "<group>"; };
 		88D570331B1607B30043507D /* WatchOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D570371B1607B30043507D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D570381B1607B30043507D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 			children = (
 				88D570631B163B1C0043507D /* Player.h */,
 				88D570641B163B1C0043507D /* Player.m */,
+				09A110971B1AFA7300A4351D /* Barrier.h */,
+				09A110981B1AFA7300A4351D /* Barrier.m */,
 			);
 			name = Element;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				88D570611B163B060043507D /* ControlView.m in Sources */,
 				88D5703C1B1607B30043507D /* AppDelegate.m in Sources */,
 				88D570391B1607B30043507D /* main.m in Sources */,
+				09A110991B1AFA7300A4351D /* Barrier.m in Sources */,
 				88D570651B163B1C0043507D /* Player.m in Sources */,
 				88D5705E1B163AFB0043507D /* SceneView.m in Sources */,
 			);
@@ -442,6 +448,7 @@
 				88D570581B1607B30043507D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88D570591B1607B30043507D /* Build configuration list for PBXNativeTarget "WatchOutTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +457,7 @@
 				88D5705B1B1607B30043507D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

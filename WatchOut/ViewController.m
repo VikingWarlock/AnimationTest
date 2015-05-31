@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "SceneView.h"
+#import "ControlView.h"
+
 @interface ViewController ()
 
 @property(nonatomic,weak)IBOutlet SceneView *scene;
-
+@property(nonatomic,weak)IBOutlet ControlView *control;
 @end
 
 @implementation ViewController
@@ -25,6 +27,7 @@
 {
     [super viewDidAppear:animated];
     [self.scene setup];
+    [self.control setup];
 }
 
 - (void)didReceiveMemoryWarning {

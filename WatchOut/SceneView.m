@@ -8,16 +8,18 @@
 
 #import "SceneView.h"
 #import "Player.h"
+#import "Barrier.h"
 
 @interface SceneView()
 {
     BOOL needInit;
     NSTimer *baseTimer;
-    
     float offset;
     float markLenth;
-    
     Player *player;
+    
+    NSMutableArray *barrierList;
+
 }
 
 @end
@@ -57,11 +59,11 @@
 {
     self.backgroundColor=[UIColor greenColor];
     
-    player=[[Player alloc]init];
+    player=[Player sharedObject];
     
 
     markLenth=self.frame.size.height/8.f;
-    
+    barrierList=[NSMutableArray array];
     offset=0.f;
     
     baseTimer=[NSTimer scheduledTimerWithTimeInterval:1/30.f target:self selector:@selector(handleNextFrame) userInfo:nil repeats:YES];
@@ -73,8 +75,36 @@
     if (offset>markLenth) {
         offset=-markLenth;
     }
+    
+    if (arc4random() % 100<3)
+    {
+        Barrier *barrier=[[Barrier alloc]initWithRow:(arc4random() %3)];
+        [barrierList addObject:barrier];
+    }
+
+    NSMutableArray *temp;
+    for(Barrier *item in barrierList)
+    {
+        item.y_Offset+=5.f;
+        if (item.y_Offset>self.frame.size.height+5) {
+            if (temp==nil) {
+                temp=[NSMutableArray array];
+            }
+            [temp addObject:item];
+        }
+    }
+    if (temp) {
+        for(Barrier *item in temp)
+        {
+            [barrierList removeObject:item];
+        }
+    }
+    
+    
     [self setNeedsDisplay];
 }
+
+
 
 -(void)drawRect:(CGRect)rect
 {
@@ -98,10 +128,6 @@
         
         
         needInit=NO;
-//    }else
-//    {
-//        CGContextRestoreGState(ctx);
-//    }
 
     CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);
     CGContextSetLineWidth(ctx, 20.f);
@@ -115,8 +141,16 @@
     }
     CGContextDrawPath(ctx, kCGPathStroke);
     
+    CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);
+    CGContextFillRect(ctx, CGRectMake(recto.origin.x+player.row*recto.size.width/3.f+30.f, recto.size.height-80.f, recto.size.width/3.f-60.f, 60.f));
     
     
+    CGContextSetFillColorWithColor(ctx, [UIColor brownColor].CGColor);
+
+    for(Barrier *item in barrierList)
+    {
+        CGContextFillRect(ctx, CGRectMake(recto.origin.x+item.row*recto.size.width/3.f+30.f, item.y_Offset, recto.size.width/3.f-60.f, 60.f));
+    }
     
 }
 
